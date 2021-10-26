@@ -1,12 +1,12 @@
 import * as React from "react";
 import { ethers } from "ethers";
 
-import MusicPlayer from "./components/MusicPlayer";
-import Recommendations from "./components/Recommendations";
-import Button from "./components/Button";
-import Loading from "./components/Loading";
+import MusicPlayer from "./MusicPlayer";
+import Recommendations from "./Recommendations";
+import Button from "./Button";
+import Loading from "./Loading";
 
-import { CONTRACT, contractABI } from "./constants";
+import { CONTRACT, contractABI } from "../../utils/constants";
 
 const SONG_COVER =
   "https://upload.wikimedia.org/wikipedia/pt/3/39/The_Weeknd_-_Starboy.png";
