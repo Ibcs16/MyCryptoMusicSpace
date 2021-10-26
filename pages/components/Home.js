@@ -7,6 +7,7 @@ import Button from "./Button";
 import Loading from "./Loading";
 
 import { CONTRACT, contractABI } from "../../utils/constants";
+import Modal from "./Modal";
 
 const SONG_COVER =
   "https://upload.wikimedia.org/wikipedia/pt/3/39/The_Weeknd_-_Starboy.png";
@@ -17,6 +18,7 @@ export default function Home() {
   const [recommendations, setRecommendations] = React.useState([]);
 
   const [loading, setLoading] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(false);
 
   const getEthereum = React.useCallback(({ showAlert = false } = {}) => {
     const { ethereum } = window;
@@ -106,7 +108,7 @@ export default function Home() {
     }
   };
 
-  const recommendSong = async () => {
+  const recommendSong = async (new_song = "") => {
     try {
       setLoading(true);
       const myCryptoMusicSpace = await getContract();
@@ -115,7 +117,7 @@ export default function Home() {
       console.log("%s recommended songs", count.toNumber());
 
       const recommendSongTxn = await myCryptoMusicSpace.recommendSong(
-        "Husavik - Eurovision",
+        new_song,
         { gasLimit: 300000 }
       );
       console.log("Mining...", recommendSongTxn.hash);
@@ -202,9 +204,16 @@ export default function Home() {
         <Button
           isActive={!currentAddress}
           label={currentAddress ? "Recommend Song" : "Connect wallet"}
-          onClick={currentAddress ? recommendSong : connectWallet}
+          onClick={currentAddress ? () => setShowModal(true) : connectWallet}
         />
       )}
+      {
+        <Modal
+          visible={showModal}
+          onClose={() => setShowModal(false)}
+          onSubmit={({ new_song }) => recommendSong(new_song)}
+        />
+      }
     </div>
   );
 }

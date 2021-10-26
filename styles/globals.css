@@ -176,10 +176,9 @@ tfoot {
   font-weight: 600;
   font-size: 18px;
   line-height: 27px;
+  cursor: pointer;
 
   border-radius: 15px;
-
-  cursor: pointer;
   background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
     linear-gradient(
         to right,
@@ -339,4 +338,71 @@ span.hologram {
   100% {
     transform: translate(24px, 0);
   }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: clamp(540px, 540px, 90%);
+  padding: 45px 67px;
+  background: #16171d;
+
+  border-radius: 20px;
+  background: linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    linear-gradient(
+        to right,
+        rgb(194, 255, 182),
+        rgb(255, 163, 182),
+        rgb(221, 169, 255),
+        rgb(162, 209, 255)
+      )
+      border-box;
+
+  border: 2px solid transparent;
+}
+
+.modal label {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+}
+
+.modal input {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background: transparent;
+  width: 100%;
+}
+
+.modal input::placeholder {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+  opacity: 0.64;
+}
+
+.modal .sendBtn {
+  padding: 4px 35px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.model-backdrop {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
