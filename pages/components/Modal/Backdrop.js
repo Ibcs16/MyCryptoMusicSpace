@@ -14,7 +14,7 @@ const variants = {
   },
 };
 
-export default function Backdrop({ onClose }) {
+export default function Backdrop({ children, onClose }) {
   return (
     <motion.div
       onClick={onClose}
@@ -23,6 +23,8 @@ export default function Backdrop({ onClose }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-    />
+    >
+      {children}
+    </motion.div>
   );
 }

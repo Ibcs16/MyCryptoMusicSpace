@@ -11,7 +11,7 @@ import Modal from "./Modal";
 
 const SONG_COVER =
   "https://upload.wikimedia.org/wikipedia/pt/3/39/The_Weeknd_-_Starboy.png";
-const SONG_TITLE = "Star boy";
+const SONG_TITLE = "I feel it coming";
 
 export default function Home() {
   const [currentAddress, setCurrentAddress] = React.useState(null);
@@ -110,8 +110,10 @@ export default function Home() {
 
   const recommendSong = async (new_song = "") => {
     try {
+      console.log("Should recommend: ", new_song);
       setLoading(true);
       const myCryptoMusicSpace = await getContract();
+      setShowModal(false);
 
       let count = await myCryptoMusicSpace.getTotalRecommendedSongs();
       console.log("%s recommended songs", count.toNumber());
@@ -171,49 +173,52 @@ export default function Home() {
   }, [checkIfWalletIsConnected, getAllRecommendations]);
 
   return (
-    <div className="container">
-      <div className="header">
-        <div className="info">
-          <h1 className="title">
-            <p>Hi,</p>
-            <p>
-              {"I'm"}, <span className="name hologram">@iago_brayham</span>
-            </p>
-          </h1>
+    <>
+      <div className="container">
+        <div className="header">
+          <div className="info">
+            <h1 className="title">
+              <p>Hi,</p>
+              <p>
+                {"I'm"}, <span className="name hologram">@iago_brayham</span>
+              </p>
+            </h1>
 
-          <p className="bio">
-            web3 programmer and music lover. Share your fav songs + new music
-            findings with me! Or follow me at{" "}
-            <a
-              target="_blank"
-              href="https://audius.co/ibrayham"
-              rel="noreferrer"
-            >
-              audius.co
-            </a>
-          </p>
+            <p className="bio">
+              web3 programmer and music lover. Share your fav songs + new music
+              findings with me! Or follow me at{" "}
+              <a
+                target="_blank"
+                href="https://audius.co/ibrayham"
+                rel="noreferrer"
+              >
+                audius.co
+              </a>
+            </p>
+          </div>
+          <MusicPlayer songCover={SONG_COVER} songTitle={SONG_TITLE} />
         </div>
-        <MusicPlayer songCover={SONG_COVER} songTitle={SONG_TITLE} />
+
+        <Recommendations recommendations={recommendations} />
+
+        {loading && <Loading />}
+
+        {!loading && (
+          <Button
+            isActive={!currentAddress}
+            label={currentAddress ? "Recommend Song" : "Connect wallet"}
+            onClick={currentAddress ? () => setShowModal(true) : connectWallet}
+          />
+        )}
       </div>
 
-      <Recommendations recommendations={recommendations} />
-
-      {loading && <Loading />}
-
-      {!loading && (
-        <Button
-          isActive={!currentAddress}
-          label={currentAddress ? "Recommend Song" : "Connect wallet"}
-          onClick={currentAddress ? () => setShowModal(true) : connectWallet}
-        />
-      )}
       {
         <Modal
           visible={showModal}
           onClose={() => setShowModal(false)}
-          onSubmit={({ new_song }) => recommendSong(new_song)}
+          onSubmit={(new_song) => recommendSong(new_song)}
         />
       }
-    </div>
+    </>
   );
 }

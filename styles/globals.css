@@ -2,10 +2,15 @@
   --color-bg: #16171d;
 }
 
-a,
-a:visited,
-a:focus,
-a:active {
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.info a,
+.info a:visited,
+.info a:focus,
+.info a:active {
   color: white;
   text-decoration: underline;
 }
@@ -49,6 +54,11 @@ body {
   font-family: Poppins;
   font-style: normal;
   background-color: #16171d;
+}
+
+main {
+  height: 100%;
+  width: 100%;
 }
 
 * {
@@ -121,9 +131,10 @@ th {
 }
 
 td {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   line-height: 21px;
+  opacity: 0.8;
 }
 
 tr {
@@ -199,10 +210,6 @@ tfoot {
   margin-right: auto;
   left: 0;
   right: 0;
-}
-
-.recommendBtn:hover {
-  transform: scale(1.1);
 }
 
 .recommendBtn.is-active {
@@ -282,6 +289,7 @@ span.hologram {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
 }
 
 .lds-ellipsis {
@@ -343,6 +351,7 @@ span.hologram {
 .modal {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: clamp(540px, 540px, 90%);
   padding: 45px 67px;
   background: #16171d;
@@ -367,6 +376,7 @@ span.hologram {
   font-weight: 600;
   font-size: 28px;
   line-height: 42px;
+  margin-bottom: 24px;
 }
 
 .modal input {
@@ -374,6 +384,13 @@ span.hologram {
   border-radius: 10px;
   background: transparent;
   width: 100%;
+  margin-bottom: 24px;
+  padding: 18px 26px;
+  color: white;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 27px;
 }
 
 .modal input::placeholder {
@@ -383,24 +400,31 @@ span.hologram {
   line-height: 27px;
   /* identical to box height */
 
-  opacity: 0.64;
+  opacity: 0.8;
 }
 
 .modal .sendBtn {
+  max-width: 200px;
   padding: 4px 35px;
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
   line-height: 42px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border-color: transparent;
+  margin-top: 8px;
+  cursor: pointer;
+  color: white;
 }
 
-.model-backdrop {
+.modal-backdrop {
   position: absolute;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
   height: 100%;
+  z-index: 9999;
   width: 100%;
   display: flex;
   align-items: center;

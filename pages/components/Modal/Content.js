@@ -5,20 +5,20 @@ import Backdrop from "./Backdrop";
 
 const variants = {
   hidden: {
-    oapcity: 0,
+    // oapcity: 0,
     y: "-100vh",
   },
   visible: {
-    opacity: 1,
+    // opacity: 1,
     y: 0,
     transition: {
-      duration: 0.1,
+      duration: 0.2,
       type: "spring",
       damping: 25,
       stiffness: 500,
     },
   },
-  exit: { opacity: 1, y: "-100vh" },
+  exit: { y: "100vh" },
 };
 
 export default function Content({ onClose, onSubmit }) {
@@ -38,10 +38,14 @@ export default function Content({ onClose, onSubmit }) {
         onClick={(e) => e.stopPropagation()}
       >
         <label htmlFor="new_song">What should I listen to?</label>
-        <input name="new_song" id="new_song" />
-        <button type="submit" className="sendBtn hologram">
+        <input name="new_song" id="new_song" placeholder="Enter song name" />
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          type="submit"
+          className="sendBtn hologram"
+        >
           Send
-        </button>
+        </motion.button>
       </motion.form>
     </Backdrop>
   );
