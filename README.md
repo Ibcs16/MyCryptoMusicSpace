@@ -6,6 +6,9 @@ Built during **_@\_buildspace_**'s Solidity+Eth weekend challenge.
 
 ### Live version 🔥: https://my-crypto-music-space.vercel.app/
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/18746683/138985115-b691f9a6-b21a-451e-b204-60cd4105fdc4.gif)
+
+
 ## Technologies ✨:
 
 - ReactJs
