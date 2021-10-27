@@ -1,8 +1,10 @@
-# My Crypto Space - smart-contract
+# My Crypto Space dApp - smart-contract
 
-Reccomend me your fav songs. I promise Ill give it a try.
+Recommend me your fav songs. I promise Ill give it a try.
 
 Built during **_@\_buildspace_**'s Solidity+Eth weekend challenge.
+
+### Live version 🔥: https://my-crypto-music-space.vercel.app/
 
 ## Technologies ✨:
 
