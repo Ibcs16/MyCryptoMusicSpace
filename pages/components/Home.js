@@ -144,7 +144,7 @@ export default function Home() {
         ...prevState,
         {
           address: from,
-          date: new Date(timestamp * 1000).toISOString(),
+          date: new Date(timestamp * 1000).toISOString().split("T")[0],
           song: song,
         },
       ]);
