@@ -112,23 +112,19 @@ export default function Home() {
     try {
       console.log("Should recommend: ", new_song);
       setLoading(true);
-      const myCryptoMusicSpace = await getContract();
       setShowModal(false);
 
-      let count = await myCryptoMusicSpace.getTotalRecommendedSongs();
-      console.log("%s recommended songs", count.toNumber());
+      const myCryptoMusicSpace = await getContract();
 
       const recommendSongTxn = await myCryptoMusicSpace.recommendSong(
         new_song,
         { gasLimit: 300000 }
       );
+
       console.log("Mining...", recommendSongTxn.hash);
 
       await recommendSongTxn.wait();
       console.log("Mined -- ", recommendSongTxn.hash);
-
-      count = await myCryptoMusicSpace.getTotalRecommendedSongs();
-      console.log("%s recommended songs", count.toNumber());
     } catch (error) {
       console.error(error);
     } finally {

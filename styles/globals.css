@@ -430,3 +430,12 @@ span.hologram {
   align-items: center;
   justify-content: center;
 }
+
+a.songLink {
+  text-decoration: underline;
+  display: block;
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

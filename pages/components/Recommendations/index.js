@@ -11,10 +11,21 @@ const TotalRecommendations = ({ total }) => (
 );
 
 const RecommendationsItem = ({ address, song, date }) => {
+  const renderSong = () => {
+    if (song?.includes("http")) {
+      return (
+        <a className="songLink" href={song} target="_blank" rel="noreferrer">
+          {song}
+        </a>
+      );
+    } else {
+      return song;
+    }
+  };
   return (
     <tr>
       <td>{address}</td>
-      <td>{song}</td>
+      <td>{renderSong()}</td>
       <td>{date}</td>
     </tr>
   );
