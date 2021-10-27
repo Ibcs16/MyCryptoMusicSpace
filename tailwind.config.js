@@ -48,7 +48,7 @@ module.exports = {
     extend: {
       animation: {
         attention: "jump 0.6s ease infinite alternate",
-        bg: "waves 7s ease infinite",
+        bg: "waves 5s ease infinite",
       },
       keyframes: {
         waves: {
