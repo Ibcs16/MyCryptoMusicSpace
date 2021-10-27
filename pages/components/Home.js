@@ -176,7 +176,7 @@ export default function Home() {
             <h1 className="title">
               <p>Hi,</p>
               <p>
-                {"I'm"}, <span className="name hologram">@iago_brayham</span>
+                {"I'm"} <span className="name hologram">@iago_brayham</span>
               </p>
             </h1>
 
