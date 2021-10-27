@@ -14,7 +14,12 @@ const RecommendationsItem = ({ address, song, date }) => {
   const renderSong = () => {
     if (song?.includes("http")) {
       return (
-        <a className="songLink" href={song} target="_blank" rel="noreferrer">
+        <a
+          className="body-link-md block w-[250px] truncate"
+          href={song}
+          target="_blank"
+          rel="noreferrer"
+        >
           {song}
         </a>
       );
@@ -23,8 +28,8 @@ const RecommendationsItem = ({ address, song, date }) => {
     }
   };
   return (
-    <tr>
-      <td>{address}</td>
+    <tr className="table-row">
+      <td className="hidden md:block w-[350px] ">{address}</td>
       <td>{renderSong()}</td>
       <td>{date}</td>
     </tr>
@@ -33,11 +38,13 @@ const RecommendationsItem = ({ address, song, date }) => {
 
 const Recommendations = ({ recommendations = [] }) => {
   return (
-    <table>
-      <caption className="table-title">Last recommendations:</caption>
+    <table className="table-auto">
+      <caption className="mb-6 text-left title-md">
+        Last recommendations:
+      </caption>
       <thead>
-        <tr>
-          <th>Recommended by</th>
+        <tr className="table-col">
+          <th className="hidden md:block">Recommended by</th>
           <th>Song</th>
           <th>Date</th>
         </tr>

@@ -6,7 +6,7 @@ import Recommendations from "./Recommendations";
 import Button from "./Button";
 import Loading from "./Loading";
 
-import { CONTRACT, contractABI } from "../../utils/constants";
+import { CONTRACT, contractABI } from "../utils/constants";
 import Modal from "./Modal";
 
 const SONG_COVER =
@@ -170,17 +170,17 @@ export default function Home() {
 
   return (
     <>
-      <div className="container">
-        <div className="header">
+      <div className="mx-auto px-[16px] md:px-[60px] xl:px-[140px] md:max-w-[1024px] py-[70px]">
+        <div className="flex items-center justify-between mb-12">
           <div className="info">
-            <h1 className="title">
+            <h1 className="title-lg">
               <p>Hi,</p>
               <p>
                 {"I'm"} <span className="name hologram">@iago_brayham</span>
               </p>
             </h1>
 
-            <p className="bio">
+            <p className="body-lg  mt-10">
               web3 programmer and music lover. Share your fav songs + new music
               findings with me! Or follow me at{" "}
               <a

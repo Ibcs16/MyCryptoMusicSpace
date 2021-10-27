@@ -4,7 +4,7 @@ const RecommendSongButton = ({ label, isActive = false, ...others }) => {
   return (
     <motion.button
       whileHover={{ scale: 1.1 }}
-      className={`recommendBtn ${isActive ? "is-active" : ""}`}
+      className={`recommendBtn ${isActive ? "animate-attention" : ""}`}
       {...others}
     >
       {label}
