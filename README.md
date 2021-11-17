@@ -1,4 +1,5 @@
-# My Crypto Space dApp - smart-contract
+# My Crypto Space dApp
+Smart-contract code: https://github.com/Ibcs16/my-crypto-space
 
 Recommend me your fav songs. I promise Ill give it a try.
 
